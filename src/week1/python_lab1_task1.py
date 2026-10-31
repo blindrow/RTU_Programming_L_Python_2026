@@ -41,3 +41,21 @@ if __name__ == "__main__":
     # cannot import your file.
     # TODO: ask for user input, call circle_area(), and print formatted result
     pass
+
+
+
+
+
+
+import math
+
+
+def circle_area(radius: float) -> float:
+    """Return the area of a circle given its radius (unrounded)."""
+    return math.pi * radius ** 2
+
+
+if __name__ == "__main__":
+    radius = float(input("Enter radius: "))
+    print(f"Area of the circle: {circle_area(radius):.2f}")
+
