@@ -18,7 +18,7 @@ For largest_city() and smallest_city():
 - If two cities tie, return the one that comes FIRST in the dictionary.
 - If the dictionary is empty, return ("", 0).
 - Built-ins such as sum(), len(), max() and min() are allowed.
-  Hint: max(populations, key=populations.get) gives the key with the
+  Hint: max(populations, key=lambda city: populations[city]) gives the key with the
   largest value.
 
 In the main block: create your OWN datasets (a list `temperatures` with
@@ -53,43 +53,6 @@ Examples (these are also used to check your work):
 
 def average(values: list[float]) -> float:
     """Return the average of values, or 0.0 for an empty list."""
-    # TODO: implement
-    raise NotImplementedError("average() is not implemented yet")
-
-
-def largest_city(populations: dict[str, int]) -> tuple[str, int]:
-    """Return (city, population) for the city with the largest population."""
-    # TODO: implement
-    raise NotImplementedError("largest_city() is not implemented yet")
-
-
-def smallest_city(populations: dict[str, int]) -> tuple[str, int]:
-    """Return (city, population) for the city with the smallest population."""
-    # TODO: implement
-    raise NotImplementedError("smallest_city() is not implemented yet")
-
-
-def total_population(populations: dict[str, int]) -> int:
-    """Return the sum of all populations."""
-    # TODO: implement
-    raise NotImplementedError("total_population() is not implemented yet")
-
-
-if __name__ == "__main__":
-    # Keep all input() and print() calls inside this block, otherwise the
-    # autograder cannot import your file.
-
-    # TODO: Create your own datasets - up to you to fill in the data
-    temperatures = []
-    city_population = {}
-
-    # TODO: call the functions above and print the results
-    pass
-
-
-
-def average(values: list[float]) -> float:
-    """Return the average of values, or 0.0 for an empty list."""
     return sum(values) / len(values) if values else 0.0
 
 
@@ -97,7 +60,7 @@ def largest_city(populations: dict[str, int]) -> tuple[str, int]:
     """Return (city, population) for the city with the largest population."""
     if not populations:
         return ("", 0)
-    city = max(populations, key=populations.get)
+    city = max(populations, key=lambda city: populations[city])
     return (city, populations[city])
 
 
@@ -105,7 +68,7 @@ def smallest_city(populations: dict[str, int]) -> tuple[str, int]:
     """Return (city, population) for the city with the smallest population."""
     if not populations:
         return ("", 0)
-    city = min(populations, key=populations.get)
+    city = min(populations, key=lambda city: populations[city])
     return (city, populations[city])
 
 
