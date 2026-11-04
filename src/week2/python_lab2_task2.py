@@ -70,3 +70,33 @@ if __name__ == "__main__":
     # autograder cannot import your file.
     # TODO: call each function with NUMBERS and print the results
     pass
+
+
+
+def squares(numbers: list[int]) -> list[int]:
+    """Return a list with the square of each number."""
+    return [x ** 2 for x in numbers]
+
+
+def positives(numbers: list[int]) -> list[int]:
+    """Return only numbers greater than 0."""
+    return [x for x in numbers if x > 0]
+
+
+def even_squares(numbers: list[int]) -> set[int]:
+    """Return squares of even numbers as a set."""
+    return {x ** 2 for x in numbers if x % 2 == 0}
+
+
+def cubes(numbers: list[int]) -> dict[int, int]:
+    """Return a dict mapping each number to its cube."""
+    return {x: x ** 3 for x in numbers}
+
+
+if __name__ == "__main__":
+    print(f"Squares: {squares(NUMBERS)}")
+    print(f"Positives: {positives(NUMBERS)}")
+    print(f"Even squares: {even_squares(NUMBERS)}")
+    print(f"Cubes: {cubes(NUMBERS)}")
+
+

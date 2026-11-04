@@ -85,3 +85,49 @@ if __name__ == "__main__":
 
     # TODO: call the functions above and print the results
     pass
+
+
+
+def average(values: list[float]) -> float:
+    """Return the average of values, or 0.0 for an empty list."""
+    return sum(values) / len(values) if values else 0.0
+
+
+def largest_city(populations: dict[str, int]) -> tuple[str, int]:
+    """Return (city, population) for the city with the largest population."""
+    if not populations:
+        return ("", 0)
+    city = max(populations, key=populations.get)
+    return (city, populations[city])
+
+
+def smallest_city(populations: dict[str, int]) -> tuple[str, int]:
+    """Return (city, population) for the city with the smallest population."""
+    if not populations:
+        return ("", 0)
+    city = min(populations, key=populations.get)
+    return (city, populations[city])
+
+
+def total_population(populations: dict[str, int]) -> int:
+    """Return the sum of all populations."""
+    return sum(populations.values())
+
+
+if __name__ == "__main__":
+    temperatures = [2.5, 3.0, 1.0, 4.5, 6.0, 5.5, 3.5]
+    city_population = {
+        "Riga": 605000,
+        "Daugavpils": 78000,
+        "Liepaja": 67000,
+        "Jelgava": 55000,
+        "Valmiera": 23000,
+    }
+
+    largest_name, largest_pop = largest_city(city_population)
+    smallest_name, smallest_pop = smallest_city(city_population)
+
+    print(f"Average temperature: {average(temperatures):.1f}")
+    print(f"Largest city: {largest_name} - {largest_pop}")
+    print(f"Smallest city: {smallest_name} - {smallest_pop}")
+    print(f"Total population: {total_population(city_population)}")
